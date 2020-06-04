@@ -32,9 +32,9 @@ def lambda_handler(event, context):
 
     ax.imshow(im_data, extent=(x.min(), x.max(), y.min(), y.max()),
           cmap='RdBu', origin='lower' if y[0] < y[-1] else 'upper')
-    ax.coastlines(color='tab:green', resolution='10m')
-    ax.add_feature(cfeature.LAKES.with_scale('10m'), facecolor='none', edgecolor='tab:blue')
-    ax.add_feature(cfeature.RIVERS.with_scale('10m'), edgecolor='tab:blue')
+    ax.coastlines(color='tab:green', resolution='110m')
+    ax.add_feature(cfeature.LAKES.with_scale('110m'), facecolor='none', edgecolor='tab:blue')
+    ax.add_feature(cfeature.RIVERS.with_scale('110m'), edgecolor='tab:blue')
 
     save_path = "/tmp/example.png"
     plt.savefig(save_path)
