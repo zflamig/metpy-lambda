@@ -20,8 +20,8 @@ RUN curl -L http://download.osgeo.org/geos/geos-3.7.1.tar.bz2 | tar jxf - -C /tm
 
 # Install python packages we want
 
-RUN pip install --upgrade metpy pytest pandas pint pooch traitlets scipy netCDF4 matplotlib -t python/
-RUN export PYTHONPATH=/var/task/python:$PYTHONPATH; LD_LIBRARY_PATH=/var/task/lib:$LD_LIBRARY_PATH; export PATH=/var/task/bin:$PATH; pip install --global-option=build_ext --global-option="-I/var/task/include" --global-option="-L/var/task/lib" --upgrade cartopy -t python/
+RUN pip install --upgrade metpy pytest pandas pint pooch traitlets scipy netCDF4 matplotlib python-dateutil==2.8.0 -t python/
+RUN export PYTHONPATH=/var/task/python:$PYTHONPATH; LD_LIBRARY_PATH=/var/task/lib:$LD_LIBRARY_PATH; export PATH=/var/task/bin:$PATH; pip install --global-option=build_ext --global-option="-I/var/task/include" --global-option="-L/var/task/lib" --upgrade cartopy==0.18.0b1 -t python/
 
 
 # Shrink layer size by stripping libraries and removing unnecessary files
